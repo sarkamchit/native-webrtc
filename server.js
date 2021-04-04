@@ -34,5 +34,13 @@ io.on("connection", socket => {
     });
 });
 
+if (process.env.PROD){
+app.use(express.static((path.john(__dirname, './client/build')));
+app.get('*', (req, res) => {
+    res.sendFile(path.john(__dirname, './client/build/index.html'));
+});
+        
+}
+    
 const port = process.env.PORT || 8000;
 server.listen(port, () => console.log('server is running on port 8000'));
